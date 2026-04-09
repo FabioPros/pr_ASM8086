@@ -1,0 +1,20 @@
+DOSSEG
+.MODEL SMALL
+.STACK 100h
+
+.DATA
+     msg DB 'Hello word!', 13, 10, '$'
+
+.CODE
+MAIN PROC
+	MOV AX, @DATA
+	MOV DS, AX
+
+	MOV DX, OFFSET msg
+	MOV AH, 09h
+	INT 21h
+
+	MOV AX, 4c00h
+	INT 21h
+MAIN ENDP
+END MAIN 
